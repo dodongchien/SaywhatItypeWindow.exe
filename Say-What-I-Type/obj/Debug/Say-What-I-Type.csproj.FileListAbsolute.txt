@@ -12,3 +12,5 @@ D:\workplaces\AlanAi\window\Say-What-I-Type\Say-What-I-Type\bin\Debug\Say-What-I
 D:\workplaces\AlanAi\window\Say-What-I-Type\Say-What-I-Type\bin\Debug\Say-What-I-Type.application
 D:\workplaces\AlanAi\window\Say-What-I-Type\Say-What-I-Type\obj\Debug\Say-What-I-Type.exe.manifest
 D:\workplaces\AlanAi\window\Say-What-I-Type\Say-What-I-Type\obj\Debug\Say-What-I-Type.application
+D:\workplaces\AlanAi\window\Say-What-I-Type\Say-What-I-Type\obj\Debug\Say_What_I_Type.FormDialog.resources
+D:\workplaces\AlanAi\window\Say-What-I-Type\Say-What-I-Type\obj\Debug\Say_What_I_Type.FormDialogEdit.resources

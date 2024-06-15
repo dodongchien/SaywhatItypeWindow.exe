@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Say-What-I-Type.exe" size="15280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Say-What-I-Type.exe" size="282544">
       <assemblyIdentity name="Say-What-I-Type" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4rBpLaAhhEmG8ZcJwbZUI44gpbMcBf5hnjFq9wTQvjY=</dsig:DigestValue>
+        <dsig:DigestValue>p7GVUh/5uyaBMI6WntiQ3Wzeq50CbvYF3Gu5Nxe8tg8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
