@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dodongchien\\SaywhatItypeWindow.exe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Say-What-I-Type\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Say-What-I-Type\\Form1.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Say-What-I-Type\\Form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Say-What-I-Type\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\FormDialogEdit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Say-What-I-Type\\FormDialogEdit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\FormDialogEdit.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Say-What-I-Type\\FormDialogEdit.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.resx",
+              "DocumentMoniker": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.resx",
+              "RelativeDocumentMoniker": "Say-What-I-Type\\Form1.resx",
+              "ToolTip": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.resx",
+              "RelativeToolTip": "Say-What-I-Type\\Form1.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-06-16T12:50:42.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Program.cs",
+              "RelativeDocumentMoniker": "Say-What-I-Type\\Program.cs",
+              "ToolTip": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Program.cs",
+              "RelativeToolTip": "Say-What-I-Type\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T12:50:38.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormDialogEdit.cs",
+              "DocumentMoniker": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\FormDialogEdit.cs",
+              "RelativeDocumentMoniker": "Say-What-I-Type\\FormDialogEdit.cs",
+              "ToolTip": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\FormDialogEdit.cs",
+              "RelativeToolTip": "Say-What-I-Type\\FormDialogEdit.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T12:39:44.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormDialogEdit.Designer.cs",
+              "DocumentMoniker": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\FormDialogEdit.Designer.cs",
+              "RelativeDocumentMoniker": "Say-What-I-Type\\FormDialogEdit.Designer.cs",
+              "ToolTip": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\FormDialogEdit.Designer.cs",
+              "RelativeToolTip": "Say-What-I-Type\\FormDialogEdit.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T12:39:39.675Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Say-What-I-Type\\Form1.Designer.cs",
+              "ToolTip": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.Designer.cs",
+              "RelativeToolTip": "Say-What-I-Type\\Form1.Designer.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAANUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T12:33:52.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.cs",
+              "RelativeDocumentMoniker": "Say-What-I-Type\\Form1.cs",
+              "ToolTip": "D:\\dodongchien\\SaywhatItypeWindow.exe\\Say-What-I-Type\\Form1.cs",
+              "RelativeToolTip": "Say-What-I-Type\\Form1.cs",
+              "ViewState": "AQIAAKEBAAAAAAAAAAAswLYBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T02:35:49.035Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
