@@ -29,8 +29,6 @@ namespace Say_What_I_Type
             listView1.MouseDoubleClick += new MouseEventHandler(listView1_MouseDoubleClick);
             listView1.SelectedIndexChanged += new EventHandler(listView1_SelectedIndexChanged);
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -41,7 +39,12 @@ namespace Say_What_I_Type
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (isSpeaking)
+            {
+                // Nếu đang nói thì dừng lại và đổi nhãn nút về "Say"
+                synthesizer.SpeakAsyncCancelAll();
+                isSpeaking = false;
+                btn_say.Text = "SAY WHAT I TYPE";
         }
         private void btn_say_Click(object sender, EventArgs e)
         {
@@ -58,24 +61,26 @@ namespace Say_What_I_Type
             var selectedLanguage = select_lang.SelectedItem.ToString();
             if (languages.ContainsKey(selectedLanguage))
             {
-                var culture = languages[selectedLanguage];
-                try
-                {
-                    Console.WriteLine(culture);
-                    // Tìm giọng nói phù hợp với văn hóa (culture)
-                    synthesizer.SelectVoiceByHints(VoiceGender.NotSet, VoiceAge.NotSet, 0, new CultureInfo(culture));
-
-                    Console.WriteLine("vào");
+                    select_lang.SelectedIndex = 0; // Chọn ngôn ngữ đầu tiên
                 }
-                catch (Exception ex)
+
+                // Lấy ngôn ngữ đã chọn
+                var selectedVoice = select_lang.SelectedItem.ToString();
+                foreach (InstalledVoice voice in synthesizer.GetInstalledVoices())
                 {
-                    MessageBox.Show("Không thể tìm thấy giọng nói phù hợp cho ngôn ngữ đã chọn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    VoiceInfo info = voice.VoiceInfo;
+                    string voiceName = $"{info.Name} ({info.Gender}, {info.Age})";
+                    if (voiceName == selectedVoice)
+                    {
+                        synthesizer.SelectVoice(info.Name);
+                        break;
                 }
             }
 
-            // Đọc ra nội dung
+                // Đọc ra nội dung và đổi nhãn nút thành "Stop"
             synthesizer.SpeakAsync(textToSpeak);
+                isSpeaking = true;
+                btn_say.Text = "Stop";
         }
         }
 
@@ -88,23 +93,26 @@ namespace Say_What_I_Type
 
         private void LoadLanguages()
         {
-            // Danh sách 50 ngôn ngữ phổ biến
-            languages = new Dictionary<string, string>
+            foreach (InstalledVoice voice in synthesizer.GetInstalledVoices())
             {
                 VoiceInfo info = voice.VoiceInfo;
                 string voiceName = $"{info.Name} ({info.Gender}, {info.Age})";
                 select_lang.Items.Add(voiceName);
             }
 
-            // Chọn ngôn ngữ đầu tiên làm mặc định
+            // Nếu có ngôn ngữ nào thì chọn ngôn ngữ đầu tiên
             if (select_lang.Items.Count > 0)
             {
                 select_lang.SelectedIndex = 0;
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-                if (selectedLanguage == "Add Language")
+                string selectedLanguage = select_lang.SelectedItem.ToString();
+
+                if (selectedLanguage == "Add Voice")
                 {
                 try
                 {
@@ -136,10 +144,7 @@ namespace Say_What_I_Type
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void tabPage2_Click(object sender, EventArgs e) { }
 
         private void tabPage1_Click(object sender, EventArgs e) { }
 
@@ -191,10 +196,13 @@ namespace Say_What_I_Type
             editForm.ShowDialog();
             LoadDataToListView();
         }
+
         private void btn_dropdow_Click(object sender, EventArgs e)
         {
             using (var dialog = new FormDialog())
+            {
                 dialog.ShowDialog();
+            }
             LoadDataToListView();
         }
 
@@ -224,7 +232,7 @@ namespace Say_What_I_Type
                             };
                             item.SubItems.Add(name);
 
-                            listView1.Items.Add(item); // Thêm ListViewItem vào ListView
+                            listView1.Items.Add(item);
                         }
                     }
                 }
