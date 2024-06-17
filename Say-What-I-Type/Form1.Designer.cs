@@ -93,14 +93,14 @@ namespace Say_What_I_Type
             this.select_lang.FormattingEnabled = true;
             this.select_lang.Location = new System.Drawing.Point(15, 277);
             this.select_lang.Name = "select_lang";
-            this.select_lang.Size = new System.Drawing.Size(230, 33);
+            this.select_lang.Size = new System.Drawing.Size(270, 33);
             this.select_lang.TabIndex = 3;
             this.select_lang.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(408, 432);
+            this.linkLabel1.Location = new System.Drawing.Point(408, 425);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(155, 25);
             this.linkLabel1.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace Say_What_I_Type
             this.tabControl1.Location = new System.Drawing.Point(5, 43);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(558, 374);
+            this.tabControl1.Size = new System.Drawing.Size(558, 370);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -126,7 +126,7 @@ namespace Say_What_I_Type
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(550, 336);
+            this.tabPage1.Size = new System.Drawing.Size(550, 332);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Convert Text To Speech";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@ namespace Say_What_I_Type
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(550, 336);
+            this.tabPage2.Size = new System.Drawing.Size(550, 388);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Talk About Me";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@ namespace Say_What_I_Type
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 48);
+            this.listView1.Location = new System.Drawing.Point(3, 100);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(544, 285);
             this.listView1.TabIndex = 0;
@@ -173,7 +173,7 @@ namespace Say_What_I_Type
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(570, 466);
+            this.ClientSize = new System.Drawing.Size(570, 468);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
@@ -192,7 +192,7 @@ namespace Say_What_I_Type
             this.PerformLayout();
 
         }
- 
+
 
         #endregion
 

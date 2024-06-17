@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Globalization;
 using System.Xml.Linq;
-
+using System.Diagnostics;
 namespace Say_What_I_Type
 {
     public partial class Form1 : Form
@@ -20,24 +20,27 @@ namespace Say_What_I_Type
         private SpeechSynthesizer synthesizer;
         private Dictionary<string, string> languages;
         private const string FilePath = "data.txt";
+        private bool isSpeaking = false; // Biến trạng thái để theo dõi trạng thái nói
+
         public Form1()
         {
             InitializeComponent();
             synthesizer = new SpeechSynthesizer();
+            synthesizer.SpeakCompleted += Synthesizer_SpeakCompleted; // Đăng ký sự kiện khi hoàn thành nói
             LoadLanguages();
             LoadDataToListView();
             listView1.MouseDoubleClick += new MouseEventHandler(listView1_MouseDoubleClick);
             listView1.SelectedIndexChanged += new EventHandler(listView1_SelectedIndexChanged);
+            select_lang.Items.Add("Add Voice");
         }
 
-        }
+        private void label1_Click(object sender, EventArgs e) { }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
-        }
+        private void Form1_Load(object sender, EventArgs e) { }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btn_say_Click(object sender, EventArgs e)
         {
             if (isSpeaking)
             {
@@ -45,22 +48,21 @@ namespace Say_What_I_Type
                 synthesizer.SpeakAsyncCancelAll();
                 isSpeaking = false;
                 btn_say.Text = "SAY WHAT I TYPE";
-        }
-        private void btn_say_Click(object sender, EventArgs e)
-        {
-            string textToSpeak = txt_say.Text;
-            // Nếu không có nội dung thì không làm gì
-            if (string.IsNullOrWhiteSpace(textToSpeak))
-            {
-                string text = "Please say something to say";
-                synthesizer.SpeakAsync(text);
-                return;
             }
-
-            // Lấy ngôn ngữ đã chọn từ comboBox1
-            var selectedLanguage = select_lang.SelectedItem.ToString();
-            if (languages.ContainsKey(selectedLanguage))
+            else
             {
+                string textToSpeak = txt_say.Text;
+                // Nếu không có nội dung thì không làm gì
+                if (string.IsNullOrWhiteSpace(textToSpeak))
+                {
+                    string text = "Please say something to say";
+                    synthesizer.SpeakAsync(text);
+                    return;
+                }
+
+                // Kiểm tra nếu không có ngôn ngữ nào được chọn
+                if (select_lang.SelectedItem == null && select_lang.Items.Count > 0)
+                {
                     select_lang.SelectedIndex = 0; // Chọn ngôn ngữ đầu tiên
                 }
 
@@ -74,14 +76,14 @@ namespace Say_What_I_Type
                     {
                         synthesizer.SelectVoice(info.Name);
                         break;
+                    }
                 }
-            }
 
                 // Đọc ra nội dung và đổi nhãn nút thành "Stop"
-            synthesizer.SpeakAsync(textToSpeak);
+                synthesizer.SpeakAsync(textToSpeak);
                 isSpeaking = true;
                 btn_say.Text = "Stop";
-        }
+            }
         }
 
         private void Synthesizer_SpeakCompleted(object sender, SpeakCompletedEventArgs e)
@@ -109,7 +111,7 @@ namespace Say_What_I_Type
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
                 string selectedLanguage = select_lang.SelectedItem.ToString();
 
                 if (selectedLanguage == "Add Voice")
@@ -124,7 +126,7 @@ namespace Say_What_I_Type
                     });
                 }
                 catch (Exception ex)
-        {
+                {
                     MessageBox.Show("Không thể mở phần Time & Language. Lỗi: " + ex.Message);
                 }
             }
