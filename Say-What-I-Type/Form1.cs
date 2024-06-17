@@ -242,21 +242,5 @@ namespace Say_What_I_Type
                 MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-            private void btn_setting_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Mở phần "Time & Language" của ứng dụng Settings
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "ms-settings:speech",
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Không thể mở phần Time & Language. Lỗi: " + ex.Message);
-            }
-        }
     }
 }
