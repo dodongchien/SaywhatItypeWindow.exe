@@ -77,64 +77,23 @@ namespace Say_What_I_Type
             // Đọc ra nội dung
             synthesizer.SpeakAsync(textToSpeak);
         }
+        }
+
+        private void Synthesizer_SpeakCompleted(object sender, SpeakCompletedEventArgs e)
+        {
+            // Khi hoàn thành nói, đổi nhãn nút về "Say"
+            isSpeaking = false;
+            btn_say.Text = "SAY WHAT I TYPE";
+        }
+
         private void LoadLanguages()
         {
             // Danh sách 50 ngôn ngữ phổ biến
             languages = new Dictionary<string, string>
             {
-                { "English", "en-US" },
-                { "Spanish", "es-ES" },
-                { "Chinese", "zh-CN" },
-                { "Hindi", "hi-IN" },
-                { "Arabic", "ar-SA" },
-                { "Portuguese", "pt-PT" },
-                { "Bengali", "bn-IN" },
-                { "Russian", "ru-RU" },
-                { "Japanese", "ja-JP" },
-                { "Punjabi", "pa-IN" },
-                { "German", "de-DE" },
-                { "Korean", "ko-KR" },
-                { "French", "fr-FR" },
-                { "Turkish", "tr-TR" },
-                { "Vietnamese", "vi-VN" },
-                { "Italian", "it-IT" },
-                { "Thai", "th-TH" },
-                { "Dutch", "nl-NL" },
-                { "Greek", "el-GR" },
-                { "Czech", "cs-CZ" },
-                { "Swedish", "sv-SE" },
-                { "Polish", "pl-PL" },
-                { "Finnish", "fi-FI" },
-                { "Hebrew", "he-IL" },
-                { "Hungarian", "hu-HU" },
-                { "Indonesian", "id-ID" },
-                { "Malay", "ms-MY" },
-                { "Norwegian", "no-NO" },
-                { "Romanian", "ro-RO" },
-                { "Slovak", "sk-SK" },
-                { "Danish", "da-DK" },
-                { "Filipino", "fil-PH" },
-                { "Croatian", "hr-HR" },
-                { "Bulgarian", "bg-BG" },
-                { "Lithuanian", "lt-LT" },
-                { "Latvian", "lv-LV" },
-                { "Slovenian", "sl-SI" },
-                { "Estonian", "et-EE" },
-                { "Serbian", "sr-RS" },
-                { "Ukrainian", "uk-UA" },
-                { "Urdu", "ur-PK" },
-                { "Farsi", "fa-IR" },
-                { "Tamil", "ta-IN" },
-                { "Telugu", "te-IN" },
-                { "Marathi", "mr-IN" },
-                { "Gujarati", "gu-IN" },
-                { "Kannada", "kn-IN" },
-                { "Malayalam", "ml-IN" }
-            };
-
-            foreach (var language in languages)
-            {
-                select_lang.Items.Add(language.Key);
+                VoiceInfo info = voice.VoiceInfo;
+                string voiceName = $"{info.Name} ({info.Gender}, {info.Age})";
+                select_lang.Items.Add(voiceName);
             }
 
             // Chọn ngôn ngữ đầu tiên làm mặc định
@@ -145,15 +104,28 @@ namespace Say_What_I_Type
         }
 
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+                if (selectedLanguage == "Add Language")
+                {
+                try
+                {
+                    // Mở phần "Time & Language" của ứng dụng Settings
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "ms-settings:speech",
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception ex)
         {
+                    MessageBox.Show("Không thể mở phần Time & Language. Lỗi: " + ex.Message);
+                }
+            }
+            
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = "https://www.saywhatitype.com/";
-
-            // Mở trang web trong trình duyệt mặc định của hệ thống
             try
             {
                 System.Diagnostics.Process.Start(url);
@@ -164,20 +136,14 @@ namespace Say_What_I_Type
             }
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void tabPage1_Click(object sender, EventArgs e) { }
 
-        }
+        private void button1_Click(object sender, EventArgs e) { }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -185,6 +151,18 @@ namespace Say_What_I_Type
             {
                 ListViewItem selectedItem = listView1.SelectedItems[0];
                 string name = selectedItem.SubItems[1].Text;
+                // Lấy ngôn ngữ đã chọn
+                var selectedVoice = select_lang.SelectedItem.ToString();
+                foreach (InstalledVoice voice in synthesizer.GetInstalledVoices())
+                {
+                    VoiceInfo info = voice.VoiceInfo;
+                    string voiceName = $"{info.Name} ({info.Gender}, {info.Age})";
+                    if (voiceName == selectedVoice)
+                    {
+                        synthesizer.SelectVoice(info.Name);
+                        break;
+                    }
+                }
                 synthesizer.SpeakAsync(name);
             }
         }
@@ -203,11 +181,11 @@ namespace Say_What_I_Type
         private void OpenEditForm(string idToEdit, string nameToEdit)
         {
             // Tạo một instance của FormDialogEdit
-            FormDialogEdit editForm = new FormDialogEdit();
-
-            // Thiết lập giá trị cho thuộc tính NameToEdit
-            editForm.IdToEdit = idToEdit;
-            editForm.NameToEdit = nameToEdit;
+            FormDialogEdit editForm = new FormDialogEdit
+            {
+                IdToEdit = idToEdit,
+                NameToEdit = nameToEdit
+            };
 
             // Hiển thị form
             editForm.ShowDialog();
@@ -239,10 +217,12 @@ namespace Say_What_I_Type
                             string id = parts[0].Trim(); // ID
                             string name = parts[1].Trim(); // Tên
 
-                            ListViewItem item = new ListViewItem();
-                            item.Text = name; // Set tên làm Text của ListViewItem
-                            item.SubItems.Add(name); // Thêm ID vào SubItems (nếu cần)
-                            item.Tag = id; // Gắn Tag là ID
+                            ListViewItem item = new ListViewItem
+                            {
+                                Text = name,
+                                Tag = id
+                            };
+                            item.SubItems.Add(name);
 
                             listView1.Items.Add(item); // Thêm ListViewItem vào ListView
                         }
@@ -252,6 +232,22 @@ namespace Say_What_I_Type
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+            private void btn_setting_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Mở phần "Time & Language" của ứng dụng Settings
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "ms-settings:speech",
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể mở phần Time & Language. Lỗi: " + ex.Message);
             }
         }
     }
